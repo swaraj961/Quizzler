@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizzler/quizbrain.dart';
 
 void main() => runApp(new Quizzler());
 
@@ -26,13 +27,23 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Widget> scorekeeper = [];
-  List<String> question = [
+  /*List<String> question = [
      'You can lead a cow down stairs but not up stairs.',
     'Approximately one quarter of human bones are in the feet.',
      'A slug\'s blood is green.',
-     'octopus have 8 hearts'
+     'Octopus have 8 hearts' 
      
-  ];
+  ];*/
+
+Brainquiz brainquiz = Brainquiz();
+List <bool> answer =[
+  false,
+  true,
+  true,
+  true,
+];
+
+
 
   int questionnumber= 0;
   @override
@@ -47,7 +58,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                question[questionnumber],
+               brainquiz.quesbank[questionnumber].questiontext,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -71,6 +82,12 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                bool correctanswer = brainquiz.quesbank[questionnumber].quesanswer;
+                 if(correctanswer== true) {
+                  print("you got correct answer ") ;}
+                  else {
+                  print("you got incorrect answer");
+              }
                 setState(() {
                   questionnumber = questionnumber+1;
                 });
@@ -92,6 +109,12 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                bool correctanswer= brainquiz.quesbank[questionnumber].quesanswer;
+                if(correctanswer== false) {
+                  print("you got incorrect answer") ;}
+                  else {
+                  print("you got correct answer");
+              }
                 setState(() {
                    questionnumber = questionnumber+1;
                   
@@ -103,7 +126,7 @@ class _QuizPageState extends State<QuizPage> {
         ),
         Row(
           children: scorekeeper,
-        )
+        ),
       ],
     );
   }
