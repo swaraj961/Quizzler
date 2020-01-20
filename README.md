@@ -1,7 +1,7 @@
-# Quizzler Quiz -App
+# Quizzler ❓ A Quiz -App
 - Check your skills and answer the questions 
 
-https://raw.githubusercontent.com/londonappbrewery/Images/master/quizzler-demo.gif
+(https://github.com/londonappbrewery/Images/blob/master/AppBreweryBanner.png)
 A new Flutter project.
 
 ## Getting Started

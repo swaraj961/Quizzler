@@ -27,13 +27,20 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Widget> scorekeeper = [];
-  /*List<String> question = [
-     'You can lead a cow down stairs but not up stairs.',
-    'Approximately one quarter of human bones are in the feet.',
-     'A slug\'s blood is green.',
-     'Octopus have 8 hearts' 
-     
-  ];*/
+  void checkanswer (bool userpickedanswer) {
+     bool correctanswer = brainquiz.quesbank[questionnumber].quesanswer;
+     setState(() {
+       
+        
+     });
+                 if( userpickedanswer== correctanswer) {
+                  scorekeeper.add(Icon(Icons.check,color:Colors.green));}
+                  else {
+                  scorekeeper.add(Icon(Icons.close,color:Colors.red));}
+              }
+              
+
+  }
 
 Brainquiz brainquiz = Brainquiz();
 List <bool> answer =[
@@ -82,7 +89,9 @@ List <bool> answer =[
                 ),
               ),
               onPressed: () {
-                bool correctanswer = brainquiz.quesbank[questionnumber].quesanswer;
+
+                checkanswer(true);
+               /* bool correctanswer = brainquiz.quesbank[questionnumber].quesanswer;
                  if(correctanswer== true) {
                   print("you got correct answer ") ;}
                   else {
@@ -91,7 +100,7 @@ List <bool> answer =[
                 setState(() {
                   questionnumber = questionnumber+1;
                 });
-                
+                */
               },
             ),
           ),
@@ -109,7 +118,8 @@ List <bool> answer =[
                 ),
               ),
               onPressed: () {
-                bool correctanswer= brainquiz.quesbank[questionnumber].quesanswer;
+                checkanswer(true);
+                /*bool correctanswer= brainquiz.quesbank[questionnumber].quesanswer;
                 if(correctanswer== false) {
                   print("you got incorrect answer") ;}
                   else {
@@ -120,6 +130,7 @@ List <bool> answer =[
                   
                 });
                 //The user picked false.
+                */
               },
             ),
           ),
