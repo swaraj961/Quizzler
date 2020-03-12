@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizzler/question.dart';
 
 void main() => runApp(Quizzler());
 
@@ -28,22 +29,15 @@ class _QuizPageState extends State<QuizPage> {
 
   List <Icon> scorekeeper = [ //to check the score 
   
-  ];
+  ];  
 
-  List<String> question = [
-'You can lead a cow down stairs but not up stairs.',
-'Approximately one quarter of human bones are in the feet.',
-'A slug\'s blood is green.',
 
-  ];
+List <Question> questionbank =[
+  Question(q:'You can lead a cow down stairs but not up stairs.',a: false ),
+  Question(q:'Approximately one quarter of human bones are in the feet.',a: true ),
+   Question(q:'A slug\'s blood is green.',a: true )
 
- List<bool> answer = [
-  false,
-  true,
-  true
-
- ];  
-
+ ];
  int questionno=0;
   @override
   Widget build(BuildContext context) {
@@ -57,7 +51,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                question[questionno],
+                questionbank[questionno].questiontext,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -81,7 +75,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                bool correctanswer=answer[questionno];
+                bool correctanswer=questionbank[questionno].questionanswer;
                 if (correctanswer== true){
               print('user got a right answer');
                 }
@@ -113,7 +107,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                bool correctanswer=answer[questionno];
+                bool correctanswer=questionbank[questionno].questionanswer;
                 if(correctanswer==false){
                   print('user got a right answer');
 
