@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quizzler/quizbrain.dart';
 
-void main() => runApp(new Quizzler());
+void main() => runApp(Quizzler());
 
 class Quizzler extends StatelessWidget {
   @override
@@ -11,7 +10,7 @@ class Quizzler extends StatelessWidget {
         backgroundColor: Colors.grey.shade900,
         body: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),
+            padding: EdgeInsets.symmetric(horizontal: 10.0),
             child: QuizPage(),
           ),
         ),
@@ -26,33 +25,26 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  List<Widget> scorekeeper = [];
-  void checkanswer (bool userpickedanswer) {
-     bool correctanswer = brainquiz.quesbank[questionnumber].quesanswer;
-     setState(() {
-       
-        
-     });
-                 if( userpickedanswer== correctanswer) {
-                  scorekeeper.add(Icon(Icons.check,color:Colors.green));}
-                  else {
-                  scorekeeper.add(Icon(Icons.close,color:Colors.red));}
-              }
-              
 
-  }
+  List <Icon> scorekeeper = [ //to check the score 
+  
+  ];
 
-Brainquiz brainquiz = Brainquiz();
-List <bool> answer =[
+  List<String> question = [
+'You can lead a cow down stairs but not up stairs.',
+'Approximately one quarter of human bones are in the feet.',
+'A slug\'s blood is green.',
+
+  ];
+
+ List<bool> answer = [
   false,
   true,
-  true,
-  true,
-];
+  true
 
+ ];  
 
-
-  int questionnumber= 0;
+ int questionno=0;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -65,7 +57,7 @@ List <bool> answer =[
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-               brainquiz.quesbank[questionnumber].questiontext,
+                question[questionno],
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -89,18 +81,21 @@ List <bool> answer =[
                 ),
               ),
               onPressed: () {
+                bool correctanswer=answer[questionno];
+                if (correctanswer== true){
+              print('user got a right answer');
+                }
+                
+                else{
+                  print('user got a wrong answer');
+                }
 
-                checkanswer(true);
-               /* bool correctanswer = brainquiz.quesbank[questionnumber].quesanswer;
-                 if(correctanswer== true) {
-                  print("you got correct answer ") ;}
-                  else {
-                  print("you got incorrect answer");
-              }
                 setState(() {
-                  questionnumber = questionnumber+1;
+                  questionno++; 
                 });
-                */
+               
+                print(questionno);
+              
               },
             ),
           ),
@@ -118,31 +113,36 @@ List <bool> answer =[
                 ),
               ),
               onPressed: () {
-                checkanswer(true);
-                /*bool correctanswer= brainquiz.quesbank[questionnumber].quesanswer;
-                if(correctanswer== false) {
-                  print("you got incorrect answer") ;}
-                  else {
-                  print("you got correct answer");
-              }
-                setState(() {
-                   questionnumber = questionnumber+1;
-                  
-                });
-                //The user picked false.
-                */
+                bool correctanswer=answer[questionno];
+                if(correctanswer==false){
+                  print('user got a right answer');
+
+                }else{
+                  print('user got a wrong answer');
+                }
+            setState(() {
+              questionno++;
+                       });
+              print(questionno);
+              
+               
+              
               },
             ),
           ),
         ),
         Row(
-          children: scorekeeper,
+         children: scorekeeper
         ),
+       
       ],
     );
+    
   }
 }
 
 /*
-
+question1: 'You can lead a cow down stairs but not up stairs.', false,
+question2: 'Approximately one quarter of human bones are in the feet.', true,
+question3: 'A slug\'s blood is green.', true,
 */
