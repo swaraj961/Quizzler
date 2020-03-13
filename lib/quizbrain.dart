@@ -1,4 +1,4 @@
-import 'package:quizzler/classes.dart';
+import 'package:quizzler/question.dart';
 
 class Brainquiz {
   List<Question> quesbank =[
@@ -31,6 +31,3 @@ Question(q: 'You can lead a cow down stairs but not up stairs.', a: false),
   
 }
 
-void nextquestion () {
-  if (Question)
-}
