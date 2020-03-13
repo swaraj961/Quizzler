@@ -1,7 +1,9 @@
 import 'package:quizzler/question.dart';
 
 class Brainquiz {
-  List<Question> quesbank =[
+
+   int _questionno=0;
+  List<Question> _quesbank =[ //_make the data pvt
 Question(q: 'You can lead a cow down stairs but not up stairs.', a: false),
     Question(q:'Approximately one quarter of human bones are in the feet.',a: true),
     Question(q: 'A slug\'s blood is green.', a: true),
@@ -28,6 +30,23 @@ Question(q: 'You can lead a cow down stairs but not up stairs.', a: false),
         a: true),
   ];
 
-  
+void checknextquestion()
+{
+  if(_questionno < _quesbank.length-1){
+    _questionno++;
+
+    print(_questionno);
+    print(_quesbank.length);
+  }
 }
 
+
+String  getquestiontext(){  //for fetching right question
+  return _quesbank[_questionno].questiontext;
+}
+
+bool getanswer() { //for getting true ans without any cheating
+  return _quesbank[_questionno].questionanswer;
+}
+
+}

@@ -33,7 +33,7 @@ class _QuizPageState extends State<QuizPage> {
 //object of quiz brain 
 Brainquiz quizbrain = Brainquiz();
 
- int questionno=0;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -46,7 +46,7 @@ Brainquiz quizbrain = Brainquiz();
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-              quizbrain.quesbank[questionno].questiontext,
+              quizbrain.getquestiontext(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -70,7 +70,7 @@ Brainquiz quizbrain = Brainquiz();
                 ),
               ),
               onPressed: () {
-                bool correctanswer=quizbrain.quesbank[questionno].questionanswer;
+                bool correctanswer=quizbrain.getanswer();
                 if (correctanswer== true){
               print('user got a right answer');
                 }
@@ -80,10 +80,10 @@ Brainquiz quizbrain = Brainquiz();
                 }
 
                 setState(() {
-                  questionno++; 
+                quizbrain.checknextquestion();
                 });
                
-                print(questionno);
+                
               
               },
             ),
@@ -102,7 +102,7 @@ Brainquiz quizbrain = Brainquiz();
                 ),
               ),
               onPressed: () {
-                bool correctanswer=quizbrain.quesbank[questionno].questionanswer;
+                bool correctanswer=quizbrain.getanswer();
                 if(correctanswer==false){
                   print('user got a right answer');
 
@@ -110,13 +110,9 @@ Brainquiz quizbrain = Brainquiz();
                   print('user got a wrong answer');
                 }
             setState(() {
-              questionno++;
-                       });
-              print(questionno);
-              
-               
-              
-              },
+              quizbrain.checknextquestion();
+                                });
+                  },
             ),
           ),
         ),
@@ -129,9 +125,3 @@ Brainquiz quizbrain = Brainquiz();
     
   }
 }
-
-/*
-question1: 'You can lead a cow down stairs but not up stairs.', false,
-question2: 'Approximately one quarter of human bones are in the feet.', true,
-question3: 'A slug\'s blood is green.', true,
-*/
