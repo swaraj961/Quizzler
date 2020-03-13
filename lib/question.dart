@@ -4,6 +4,6 @@ class Question {
   Question({String q ,bool a}) //constructor  to  provide intial values
   {
     questiontext =q;
-    questionanswer= a;
+    questionanswer= a ;
   }
 }
