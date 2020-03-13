@@ -2,10 +2,8 @@
 - Check your skills and answer the questions 
 # App UI 
 <<<<<<< HEAD
- ![Finished App](https://github.com/londonappbrewery/Images/blob/master/dicee-demo.gif)
-=======
 ![Finished App](https://github.com/swaraj961/Quizzler/blob/master/images/quizzler-demo.gif)
->>>>>>> 0caaf9f1a6c12891f27da5d360fc226c3fdbdbca
+>>>>>>> 
 A new Flutter project.
 
 ## Getting Started
