@@ -1,6 +1,7 @@
 # Quizzler A Quiz -App
 - Check your skills and answer the questions 
-<img src="test\Quizzler\images\quizzler-demo.gif" alt="">
+# App UI 
+https://github.com/swaraj961/Quizzler/blob/master/images/quizzler-demo.gif
 A new Flutter project.
 
 ## Getting Started
