@@ -1,5 +1,6 @@
 import 'package:quizzler/question.dart';
 
+
 class Brainquiz {
 
    int _questionno=0;
@@ -49,4 +50,18 @@ bool getanswer() { //for getting true ans without any cheating
   return _quesbank[_questionno].questionanswer;
 }
 
+bool isfinished(){ //tocheck and reset the ques set for the app
+  if(_questionno>= _quesbank.length-1) {
+    print('now returing true');
+return true;
+  } else{
+    print('now returning false');
+    return false;
+  }
+ 
+
+}
+void reset(){
+  _questionno=0;
+}
 }

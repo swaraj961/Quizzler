@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizzler/quizbrain.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 void main() => runApp(Quizzler());
 
@@ -7,15 +8,18 @@ class Quizzler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+    
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.grey.shade900,
         body: SafeArea(
-          child: Padding(
+       child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             child: QuizPage(),
           ),
         ),
       ),
+
     );
   }
 }
@@ -32,7 +36,20 @@ class _QuizPageState extends State<QuizPage> {
   ];  
 void checkanswers(bool userpickedanswer){
  bool correctanswer=quizbrain.getanswer();
-                if (userpickedanswer== correctanswer){
+
+ setState(() { // for reset the ques 
+ if(quizbrain.isfinished() == true) {
+ Alert(
+          context: context,
+          title: 'Finished!',
+          desc: 'You\'ve reached the end of the quiz.',
+        ).show();
+        quizbrain.reset(); 
+        scorekeeper=[];
+
+ 
+ }
+               else if (userpickedanswer== correctanswer){
          scorekeeper.add(Icon(Icons.check,color: Colors.green,));
                 }
                 
@@ -41,7 +58,7 @@ void checkanswers(bool userpickedanswer){
                   scorekeeper.add(Icon(Icons.close,color: Colors.red,));
                 }
 
-                setState(() {
+                
                 quizbrain.checknextquestion();
                 }); 
 }
