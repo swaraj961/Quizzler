@@ -1,6 +1,7 @@
 # Quizzler A Quiz -App
 ![Icon](https://github.com/swaraj961/Quizzler/blob/master/images/ic_launcher.png)
 - Check your skills and answer the questions 
+#Download apk -shorturl.at/emIK7
 # App UI 
 <<<<<<< HEAD
 ![Finished App](https://github.com/swaraj961/Quizzler/blob/master/images/quizzler-demo.gif)
