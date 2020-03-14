@@ -1,4 +1,5 @@
 # Quizzler A Quiz -App
+![Icon](https://github.com/swaraj961/Quizzler/blob/master/images/ic_launcher.png)
 - Check your skills and answer the questions 
 # App UI 
 <<<<<<< HEAD
