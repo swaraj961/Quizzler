@@ -27,8 +27,26 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
 
-  List <Icon> scorekeeper = [ //to check the score 
+  List <Icon> scorekeeper = [ 
+  //to check the score
   ];  
+void checkanswers(bool userpickedanswer){
+ bool correctanswer=quizbrain.getanswer();
+                if (userpickedanswer== correctanswer){
+         scorekeeper.add(Icon(Icons.check,color: Colors.green,));
+                }
+                
+                else{
+                  print('user got a wrong answer');
+                  scorekeeper.add(Icon(Icons.close,color: Colors.red,));
+                }
+
+                setState(() {
+                quizbrain.checknextquestion();
+                }); 
+}
+  
+
 
 //object of quiz brain 
 Brainquiz quizbrain = Brainquiz();
@@ -70,21 +88,7 @@ Brainquiz quizbrain = Brainquiz();
                 ),
               ),
               onPressed: () {
-                bool correctanswer=quizbrain.getanswer();
-                if (correctanswer== true){
-              print('user got a right answer');
-                }
-                
-                else{
-                  print('user got a wrong answer');
-                }
-
-                setState(() {
-                quizbrain.checknextquestion();
-                });
-               
-                
-              
+                          checkanswers(true);
               },
             ),
           ),
@@ -102,16 +106,7 @@ Brainquiz quizbrain = Brainquiz();
                 ),
               ),
               onPressed: () {
-                bool correctanswer=quizbrain.getanswer();
-                if(correctanswer==false){
-                  print('user got a right answer');
-
-                }else{
-                  print('user got a wrong answer');
-                }
-            setState(() {
-              quizbrain.checknextquestion();
-                                });
+               checkanswers(false);
                   },
             ),
           ),
