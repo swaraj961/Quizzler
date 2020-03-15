@@ -5,9 +5,9 @@
 ## Download apk 
 - https://www.shorturl.at/emIK7
 # App UI 
-<<<<<<< HEAD
+
 ![Finished App](https://github.com/swaraj961/Quizzler/blob/master/images/quizzler-demo.gif)
->>>>>>> 
+
 A new Flutter project.
 
 ## Getting Started
